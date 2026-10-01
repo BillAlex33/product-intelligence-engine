@@ -1,0 +1,18 @@
+{
+  "category": "smartphones",
+  "version": 1,
+  "attributes": [
+    {"name":"weight_g","type":"number","unit":"g","comparable":true},
+    {"name":"battery_mah","type":"number","unit":"mAh","comparable":true},
+    {"name":"ram_gb","type":"number","unit":"GB","comparable":true},
+    {"name":"storage_gb","type":"number","unit":"GB","comparable":true},
+    {"name":"display_inches","type":"number","unit":"in","comparable":true},
+    {"name":"charging_w","type":"number","unit":"W","comparable":true},
+    {"name":"benchmark_score","type":"number","comparable":true},
+    {"name":"main_sensor_area_mm2","type":"number","unit":"mm2","comparable":true}
+  ],
+  "derived_metrics": [
+    {"name":"battery_per_gram","formula":"battery_mah/weight_g"},
+    {"name":"benchmark_per_gram","formula":"benchmark_score/weight_g"}
+  ]
+}
