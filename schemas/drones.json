@@ -1,0 +1,19 @@
+{
+  "category": "drones",
+  "version": 1,
+  "attributes": [
+    {"name":"weight_g","type":"number","unit":"g","comparable":true},
+    {"name":"flight_time_min","type":"number","unit":"min","comparable":true},
+    {"name":"sensor_width_mm","type":"number","unit":"mm","comparable":true},
+    {"name":"sensor_height_mm","type":"number","unit":"mm","comparable":true},
+    {"name":"max_video_resolution","type":"string","comparable":true},
+    {"name":"max_video_fps","type":"number","unit":"fps","comparable":true},
+    {"name":"transmission_range_m","type":"number","unit":"m","comparable":true},
+    {"name":"obstacle_sensing","type":"string","comparable":true},
+    {"name":"wind_resistance_ms","type":"number","unit":"m/s","comparable":true}
+  ],
+  "derived_metrics": [
+    {"name":"flight_time_per_100g","formula":"flight_time_min/(weight_g/100)"},
+    {"name":"range_per_100g","formula":"transmission_range_m/(weight_g/100)"}
+  ]
+}
