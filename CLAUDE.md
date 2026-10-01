@@ -35,12 +35,27 @@ The system must continuously:
 
 ## Preferred stack
 - PostgreSQL
-- Python and/or Node.js
-- n8n
+- Python
+- FastAPI
+- Node-RED for orchestration
+- Claude Code CLI for engineering tasks
+- xAI/Grok API for fresh research tasks
 - Playwright when required
 - Docker
 - GitHub
 - WordPress initially
+
+## Agent orchestration
+The human should not need to manually move information between Claude and Grok.
+
+- Node-RED is the control plane.
+- Claude Code CLI runs against the local checkout for engineering work.
+- Grok is called via API for live research and returns structured JSON.
+- Python performs deterministic validation, normalization, scoring and DB writes.
+- PostgreSQL stores runtime state.
+- GitHub stores code, prompts, schemas and documentation.
+
+Claude should operate from the repository and job payloads, not pasted chat context.
 
 ## Implementation style
 - Do not over-engineer V1.
@@ -50,6 +65,8 @@ The system must continuously:
 - Keep category schemas versioned.
 - Make ingestion idempotent.
 - Make scheduled refresh jobs retry-safe.
+- Keep business logic out of Node-RED.
+- Treat Node-RED as an orchestrator, not the intelligence layer.
 
 ## Initial categories
 - drones
@@ -65,7 +82,8 @@ Create:
 4. first manufacturer ingestion path,
 5. first retailer offer path,
 6. derived metric engine,
-7. candidate/review workflow.
+7. candidate/review workflow,
+8. Node-RED-triggerable job API.
 
 After each meaningful change, update `docs/progress.md` with:
 - what changed
