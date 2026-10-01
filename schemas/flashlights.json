@@ -1,0 +1,18 @@
+{
+  "category": "flashlights",
+  "version": 1,
+  "attributes": [
+    {"name":"lumens","type":"number","unit":"lm","comparable":true},
+    {"name":"candela","type":"number","unit":"cd","comparable":true},
+    {"name":"throw_m","type":"number","unit":"m","comparable":true},
+    {"name":"weight_g","type":"number","unit":"g","comparable":true},
+    {"name":"length_mm","type":"number","unit":"mm","comparable":true},
+    {"name":"battery_capacity_mah","type":"number","unit":"mAh","comparable":true},
+    {"name":"ip_rating","type":"string","comparable":true}
+  ],
+  "derived_metrics": [
+    {"name":"candela_per_gram","formula":"candela/weight_g"},
+    {"name":"lumens_per_gram","formula":"lumens/weight_g"},
+    {"name":"throw_per_gram","formula":"throw_m/weight_g"}
+  ]
+}
